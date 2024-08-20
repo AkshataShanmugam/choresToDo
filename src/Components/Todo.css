@@ -1,0 +1,25 @@
+.todo {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    text-align: center;
+    border: none;
+    max-width: 300px;
+    max-height: 250px;
+}
+
+.todo.completed {
+    color: #aaa;
+    text-decoration: line-through;
+    text-align: center;
+}
+
+.to-do--buttons {
+    gap: 10px; 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+  
