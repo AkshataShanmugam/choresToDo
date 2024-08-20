@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import Todo from './components/Todo';
-import AddTask from './components/AddTask';
+import Header from './Components/Header';
+import Todo from './Components/Todo';
+import AddTask from './Components/AddTask';
 import { fetchTasks, deleteTask, toggleTaskCompletion } from './services/taskService';
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
