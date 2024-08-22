@@ -50,7 +50,7 @@ function App() {
     return (
         <div>
             <Header />
-            <Button variant="outlined" style={{display:"block", marginRight: "20px", marginLeft:"auto"}} onClick={changeFilterCompleteStatus}> Show {filterComplete ? "Not Completed": "Completed"} </Button>
+            <Button variant="outlined" style={{display:"block", marginRight: "20px", marginLeft:"auto"}} onClick={changeFilterCompleteStatus}> Show {filterComplete ? "Completed": "Not Completed"} </Button>
             <AddTask />
             <span>
                 {checker() && (<h2 style={{ textAlign: "center" }}> Whew! All tasks are completed! </h2>)}
