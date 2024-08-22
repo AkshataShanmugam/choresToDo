@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Components/Header';
-import Todo from './Components/Todo';
 import FilterButton from './Components/FilterButton';
 import TaskDialog from './Components/TaskDialog';
 import { fetchTasks, deleteTask, toggleTaskCompletion } from './utils/taskService';
