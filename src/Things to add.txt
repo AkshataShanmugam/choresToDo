@@ -6,3 +6,5 @@
 1. Send notification/reminders of task deadlines :cry
 2. Dark and light modes
 3. User sign-in
+4. Add images to add? don't know
+5. Add favicon for mobile users
