@@ -18,7 +18,7 @@ function AddTask() {
     }
 
     return (
-        <div style={{ textAlign: 'center', margin: '20px' }}>
+        <div style={{ textAlign: 'center', margin: '20px'}}>
             <input
                 type="text"
                 value={taskName}
@@ -33,7 +33,9 @@ function AddTask() {
                 placeholder="Enter time to do (minutes)"
                 style={{ marginRight: '10px', padding: '5px' }}
             />
-            <Button onClick={handleAddTask} variant="outlined" style={{ marginRight: '30px' }}>
+            <br></br>
+            <br></br>
+            <Button onClick={handleAddTask} variant="outlined">
                 Add Task
             </Button>
         </div>

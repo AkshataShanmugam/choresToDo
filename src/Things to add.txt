@@ -1,0 +1,5 @@
+1. Filter tasks based on complete, not complete status
+2. Create an option to add a deadline
+3. Filter to view - completed and incomplete tasks
+4. Search bar
+5. Send notification/reminders of task deadlines :cry
