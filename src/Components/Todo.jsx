@@ -12,7 +12,7 @@ function Todo({ props, onToggle, onDelete }) {
                 <div className={`todo ${props.completed ? 'completed' : ''}`}>
                     <CardHeader
                         title={'Task: ' + props.name}
-                        subheader={'Created on: ' + new Date().toLocaleString()}
+                        subheader={'Created on: ' + new Date(props.createdOn).toLocaleString()} // Use the createdOn timestamp from props
                     />
                     <CardContent>
                         <Typography variant="body2">
