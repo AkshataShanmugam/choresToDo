@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { addTask } from '../services/taskService';
 import Button from '@mui/material/Button';
 
-
 function AddTask() {
     const [taskName, setTaskName] = useState('');
     const [taskTime, setTaskTime] = useState('');
@@ -13,7 +12,7 @@ function AddTask() {
             return;
         }
 
-        addTask({ name: taskName, timeToDo: taskTime > 59 ? (taskTime/60)+" hours": taskTime+ " minutes", completed: false });
+        addTask({ name: taskName, timeToDo: taskTime > 59 ? (taskTime/60).toFixed(2)+" hours": taskTime+ " minutes", completed: false });
         setTaskName('');
         setTaskTime('');
     }
