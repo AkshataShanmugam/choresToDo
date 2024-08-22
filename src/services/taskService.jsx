@@ -11,7 +11,7 @@ export function addTask(task) {
     return set(newTaskRef, taskWithTimestamp);
 }
 
-export function fetchTasks(callback, required=false) {
+export function fetchTasks(callback, required=true) {
     const tasksRef = ref(db, 'tasks');
     onValue(tasksRef, (snapshot) => {
         const data = snapshot.val();
