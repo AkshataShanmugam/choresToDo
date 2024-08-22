@@ -11,7 +11,7 @@ function Todo({ props, onToggle, onDelete }) {
             <Card sx={{ maxWidth: 345 }} variant="outlined" style={{ padding: '10px' }}>
                 <div className={`todo ${props.completed ? 'completed' : ''}`}>
                     <CardHeader
-                        title={'Task: ' + props.name}
+                        title={props.name}
                         subheader={'Created on: ' + new Date(props.createdOn).toLocaleString()} // Use the createdOn timestamp from props
                     />
                     <CardContent>
