@@ -9,12 +9,14 @@ import { Add as AddIcon } from '@mui/icons-material';
 import { useConfetti } from './hooks/useConfetti';
 import TaskList from './Components/TaskList';
 import "./styles/App.css";
+import SearchBar from './Components/SearchBar';
 
 function App() {
     const { showConfetti, fadeOut, width, height, startConfetti } = useConfetti();
     const [todos, setTodos] = useState([]);
     const [filterComplete, setFilterComplete] = useState(true);
     const [openDialog, setOpenDialog] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         fetchTasks(setTodos, filterComplete);
@@ -43,9 +45,14 @@ function App() {
         return (todos.length === 0 && filterComplete);
     }
 
+    const filteredTodos = todos.filter(todo => 
+        todo.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <div>
             <Header />
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <FilterButton filterComplete={filterComplete} onClick={changeFilterCompleteStatus} />
 
             <IconButton
@@ -61,7 +68,7 @@ function App() {
 
             {checker() && (<h2 style={{ textAlign: "center" }}> Whew! All tasks are completed! </h2>)}
             
-            <TaskList todos={todos} onToggleCompletion={handleToggleCompletion} onDelete={handleDeleteTask}/>
+            <TaskList todos={filteredTodos} onToggleCompletion={handleToggleCompletion} onDelete={handleDeleteTask}/>
 
             {showConfetti && (
                 <div className={`confetti-wrapper ${fadeOut ? 'fade-out' : ''}`}>

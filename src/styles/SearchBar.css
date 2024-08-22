@@ -1,0 +1,15 @@
+.search-bar {
+    display: flex;
+    position: fixed;
+    top: 100px;
+    right: 50px;
+}
+
+.search-bar .search-icon {
+    cursor: pointer;
+    color: white;
+}
+
+.search-bar.expanded {
+    width: 50vh;
+}
