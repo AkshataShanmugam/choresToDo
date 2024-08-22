@@ -6,27 +6,34 @@ import { fetchTasks, deleteTask, toggleTaskCompletion } from './services/taskSer
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 import "./styles/App.css"
+import { Button } from '@mui/material';
 
 
 function App() {
     const { width, height } = useWindowSize();
     const [todos, setTodos] = useState([]);
+    const [filterComplete, setFilterComplete] = useState(true)
     const [showConfetti, setShowConfetti] = useState(false);
     const [fadeOut, setFadeOut] = useState(false);
+    const [returnString, setReturnString] = useState("");
 
     useEffect(() => {
-        fetchTasks(setTodos);
-    }, []);
+        fetchTasks(setTodos, filterComplete);
+    }, [filterComplete]);
 
     function handleToggleCompletion(taskId, completed) {
         toggleTaskCompletion(taskId, completed);
-        if (!completed) {
+        if (completed) {
             startConfetti();
         }
     }
 
     function handleDeleteTask(taskId) {
         deleteTask(taskId);
+    }
+
+    function changeFilterCompleteStatus() {
+        setFilterComplete((prev) => !prev)
     }
 
     function startConfetti() {
@@ -38,14 +45,17 @@ function App() {
     }
 
     function checker() {
-        return todos.length === 0;
+        return (todos.length === 0 && filterComplete);
     }
 
     return (
         <div>
             <Header />
+            <Button variant="outlined" style={{display:"block", marginRight: "20px", marginLeft:"auto"}} onClick={changeFilterCompleteStatus}> Show {filterComplete ? "Not Completed": "Completed"} </Button>
             <AddTask />
-            {checker() && (<h2 style={{ textAlign: "center" }}> Whew! All tasks are done! </h2>)}
+            <span>
+                {checker() && (<h2 style={{ textAlign: "center" }}> Whew! All tasks are completed! </h2>)}
+            </span>
             <div className="body">
                 <div className="to-do--cards">
                     {todos.map((todo) => (

@@ -11,26 +11,27 @@ export function addTask(task) {
     return set(newTaskRef, taskWithTimestamp);
 }
 
-export function fetchTasks(callback, required=true) {
+export function fetchTasks(callback, required) {
     const tasksRef = ref(db, 'tasks');
     onValue(tasksRef, (snapshot) => {
-        const data = snapshot.val();
-        const tasks = {};
+        // const tasks = {};
         if (required) {
-            tasks = data
+            const data = snapshot.val();
+            const tasks = data
                 ? Object.keys(data)
                       .filter((key) => !data[key].completed) // Only fetch tasks where completed is not true
                       .map((key) => ({ id: key, ...data[key] }))
                 : [];
+            callback(tasks);
         } else {
-            tasks = data
+            const data = snapshot.val();
+            const tasks = data
                 ? Object.keys(data)
                       .filter((key) => data[key].completed) // Only fetch tasks where completed is true
                       .map((key) => ({ id: key, ...data[key] }))
                 : [];
-
+            callback(tasks);
         }
-        callback(tasks);
     });
 }
 
