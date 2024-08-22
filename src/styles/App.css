@@ -3,14 +3,18 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 15px;
-  margin: 20px;
+  margin: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
 }
 
 .body {
-  display: flex; 
-  margin: 30px; 
+  display: flex;
+  margin: 30px;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .button--add-to-do {
@@ -38,14 +42,25 @@
 
 input {
   border-radius: 10px;
+  color: white;
   font-family: inherit;
   font-size: 15px;
-  padding: 25px;
   margin: 10px;
   border: none;
   box-sizing: border-box;
   height: 40px;
   text-align: center;
-  width: 250px;
-  box-shadow: 0px 0px 3px rgb(28, 95, 241);
+  width: 400px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 2px white;
+  /* transition: all 0.3s ease; */
+}
+
+.dialog-content {
+  background: linear-gradient(135deg, #080808, #070707); /* Gradient background */
+}
+
+.dialog-heading {
+  background: #1a2f32;
+  color: white;
 }

@@ -1,6 +1,6 @@
 1. Filter tasks based on complete, not complete status - COMPLETED
+2. Change time to display better - COMPLETED
 
-1. Change time to display better
 2. Create an option to add a deadline
 3. Filter to view - completed and incomplete tasks
 4. Search bar
