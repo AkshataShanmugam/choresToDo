@@ -1,8 +1,8 @@
 .search-bar {
     display: flex;
-    position: fixed;
-    top: 100px;
-    right: 50px;
+    justify-content: flex-end; /* Aligns the search bar to the right */
+    margin: 20px auto; /* Centers it horizontally with automatic margin on both sides */
+    width: 90%; /* Adjusts the width to take up most of the screen */
 }
 
 .search-bar .search-icon {
@@ -11,5 +11,6 @@
 }
 
 .search-bar.expanded {
-    width: 50vh;
+    width: 50vh; /* Expands the search bar */
+    max-width: 80%; /* Ensures it doesn't exceed the screen width */
 }
