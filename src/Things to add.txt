@@ -1,7 +1,7 @@
 1. Filter tasks based on complete, not complete status - COMPLETED
 2. Change time to display better - COMPLETED
+3. Create an option to add a deadline - COMPLETED
 
-2. Create an option to add a deadline
-3. Filter to view - completed and incomplete tasks
-4. Search bar
-5. Send notification/reminders of task deadlines :cry
+1. Search bar
+2. Send notification/reminders of task deadlines :cry
+3. Dark and light modes
