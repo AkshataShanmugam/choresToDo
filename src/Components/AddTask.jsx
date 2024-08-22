@@ -76,7 +76,7 @@ function AddTask() {
             />
             <br></br>
             <br></br>
-            <Button onClick={handleAddTask} style={{color: "white", backgroundColor: "black", boxShadow: "0px 0px 5px white"}}>
+            <Button onClick={handleAddTask} style={{color: "white", backgroundColor: "black", boxShadow: "0px 0px 3px white"}}>
                 Add Task
             </Button>
         </div>

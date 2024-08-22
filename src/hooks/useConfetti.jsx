@@ -1,18 +1,18 @@
+// hooks/useConfetti.js
 import { useState } from 'react';
+import useWindowSize from "react-use/lib/useWindowSize";
 
-function useConfetti() {
+export function useConfetti() {
+  const { width, height } = useWindowSize();
   const [showConfetti, setShowConfetti] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
 
   function startConfetti() {
     setShowConfetti(true);
     setFadeOut(false);
-
     setTimeout(() => setFadeOut(true), 3000);
-    setTimeout(() => setShowConfetti(false), 5000); // Hide confetti after 5 seconds
+    setTimeout(() => setShowConfetti(false), 5000);
   }
 
-  return { showConfetti, fadeOut, startConfetti };
+  return { showConfetti, fadeOut, width, height, startConfetti };
 }
-
-export default useConfetti;
