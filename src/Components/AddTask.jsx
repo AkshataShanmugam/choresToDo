@@ -12,7 +12,7 @@ function AddTask() {
             return;
         }
 
-        addTask({ name: taskName, timeToDo: taskTime, completed: false });
+        addTask({ name: taskName, timeToDo: taskTime > 59 ? (taskTime/60)+" hours": taskTime+ " minutes", completed: false });
         setTaskName('');
         setTaskTime('');
     }
