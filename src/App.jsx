@@ -15,7 +15,6 @@ function App() {
     const [filterComplete, setFilterComplete] = useState(true)
     const [showConfetti, setShowConfetti] = useState(false);
     const [fadeOut, setFadeOut] = useState(false);
-    const [returnString, setReturnString] = useState("");
 
     useEffect(() => {
         fetchTasks(setTodos, filterComplete);
