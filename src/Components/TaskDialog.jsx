@@ -1,27 +1,22 @@
 // components/TaskDialog.js
 import React from 'react';
-import { Dialog, DialogTitle, DialogContent, IconButton } from '@mui/material';
+import { Dialog, DialogContent, IconButton } from '@mui/material';
 import { Close as CloseIcon } from '@mui/icons-material';
-import AddTask from './AddTask';
+import AddTasks from './AddTasks';
 import '../styles/App.css';
 
 function TaskDialog({ open, onClose }) {
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle style={{ padding: "5px" }} className="dialog-heading">
-        {/* Add New Task */}
+      <DialogContent className="dialog-content">
         <IconButton
-          edge="end"
-          color="inherit"
           aria-label="close"
           onClick={onClose}
-          style={{ position: 'absolute', top: 10, right: 10 }}
+          style={{ position: 'absolute', top: 0, right: 0, color: "white" }}
         >
           <CloseIcon />
         </IconButton>
-      </DialogTitle>
-      <DialogContent className="dialog-content">
-        <AddTask />
+        <AddTasks />
       </DialogContent>
     </Dialog>
   );

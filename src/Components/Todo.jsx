@@ -6,11 +6,11 @@ import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import Formatter from '../utils/Formatter';
 
-function Todo({ props, onToggle, onDelete }) {
+function Todo({ props, onToggle, onDelete, onUpdate }) {
     return (
         <div>
             <Card sx={{ maxWidth: 345 }} variant="outlined" style={{ padding: '10px' }}>
-                <div className={`todo ${props.completed ? 'completed' : ''}`}>
+                <div className={`todo ${props.completed ? 'completed' : ''}`} onDoubleClick={onUpdate}>
                     <CardHeader
                         title={props.name}
                         subheader={'Created on: ' + Formatter.formatDateTime(new Date(props.createdOn))} // Use the createdOn timestamp from props

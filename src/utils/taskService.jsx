@@ -34,10 +34,12 @@ export function fetchTasks(callback, required) {
     });
 }
 
-// export function deleteTask(taskId) {
-//     const taskRef = ref(db, `tasks/${taskId}`);
-//     return update(taskRef, { completed: true }); // Mark the task as completed instead of removing
-// }
+export function updateTask(taskId, updatedTask) {
+    console.log("Task id:", taskId)
+    console.log("Task id:", updatedTask)
+    const taskRef = ref(db, `tasks/${taskId}`);
+    return update(taskRef, updatedTask);
+}
 
 export function deleteTask(taskId) {
     const taskRef = ref(db, `tasks/${taskId}`);
