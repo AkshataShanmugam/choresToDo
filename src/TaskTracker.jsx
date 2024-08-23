@@ -14,13 +14,17 @@ import SearchBar from './Components/SearchBar';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
+import TaskUpdateDialog from './Components/TaskUpdateDialog';
+
 export default function TaskTracker() {
     const { showConfetti, fadeOut, width, height, startConfetti } = useConfetti();
     const [todos, setTodos] = useState([]);
     const [filterComplete, setFilterComplete] = useState(true);
     const [openDialog, setOpenDialog] = useState(false);
+    const [openUpdateDialog, setOpenUpdateDialog] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
-
+    const [updateTask, setUpdateTask] = useState({})
+    
     useEffect(() => {
         fetchTasks(setTodos, filterComplete);
     }, [filterComplete]);
@@ -34,6 +38,15 @@ export default function TaskTracker() {
 
     function handleDeleteTask(taskId) {
         deleteTask(taskId);
+    }
+
+    function handleUpdateTask(updatedTask) {
+        setUpdateTask(updatedTask);
+        toggleUpdateDialog();
+    }
+    
+    function toggleUpdateDialog(){
+        setOpenUpdateDialog((prev)=> !prev)
     }
 
     function changeFilterCompleteStatus() {
@@ -76,10 +89,11 @@ export default function TaskTracker() {
             </IconButton>
             
             <TaskDialog open={openDialog} onClose={toggleDialog} />
+            <TaskUpdateDialog open={openUpdateDialog} onClose={toggleUpdateDialog} taskDetails={updateTask}/>
 
             {checker() && (<h2 style={{ textAlign: "center" }}> Whew! All tasks are completed! </h2>)}
             
-            <TaskList todos={filteredTodos} onToggleCompletion={handleToggleCompletion} onDelete={handleDeleteTask}/>
+            <TaskList todos={filteredTodos} onToggleCompletion={handleToggleCompletion} onDelete={handleDeleteTask} onUpdate={handleUpdateTask}/>
 
             {showConfetti && (
                 <div className={`confetti-wrapper ${fadeOut ? 'fade-out' : ''}`}>
