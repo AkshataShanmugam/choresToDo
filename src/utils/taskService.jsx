@@ -35,8 +35,6 @@ export function fetchTasks(callback, required) {
 }
 
 export function updateTask(taskId, updatedTask) {
-    console.log("Task id:", taskId)
-    console.log("Task id:", updatedTask)
     const taskRef = ref(db, `tasks/${taskId}`);
     return update(taskRef, updatedTask);
 }
