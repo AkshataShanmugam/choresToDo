@@ -51,7 +51,7 @@ export default function AddTasks() {
 
     return (
         <div className='add-task--div'>
-            <Card sx={{ maxWidth: 400 }} variant="outlined" style={{ padding: '10px'}}>
+            <Card sx={{ maxWidth: 300 }} variant="outlined" style={{ padding: '5px'}}>
                 <div className="add-task--content">
                     <CardHeader
                         title = "Add a new task"
@@ -73,7 +73,7 @@ export default function AddTasks() {
                             type="number"
                             value={taskTime}
                             onChange={(e) => setTaskTime(e.target.value)}
-                            placeholder="Time to complete(minutes)"
+                            placeholder="Duration (minutes)"
                         />
                         </Typography>
                         
