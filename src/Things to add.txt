@@ -3,14 +3,15 @@
 3. Create an option to add a deadline - COMPLETED
 4. Search bar - COMPLETED
 
+To do:
 1. Send notification/reminders of task deadlines :cry
 2. Dark and light modes
 3. User sign-in
 4. Add images to add? don't know
 5. Add favicon for mobile users
 6. Adjust add task to fit properly in mobile phones
-3. Make it user specific
-4. Add an edit option(dblClick task probably) to modify task details
-5. Add a tab to view rough daily routine
-6. Follow the random YT video - allocate less tasks per day, do not count productive based on "actual visible work done", obsess over quality (find things that require more value and try to get better at that)
-7. Sort tasks based on a given criteria
+7. Make it user specific
+8. Add an edit option(dblClick task probably) to modify task details
+9. Add a tab to view rough daily routine
+10. Follow the random YT video - allocate less tasks per day, do not count productive based on "actual visible work done", obsess over quality (find things that require more value and try to get better at that)
+11. Sort tasks based on a given criteria
