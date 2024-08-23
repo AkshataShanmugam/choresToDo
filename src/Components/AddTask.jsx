@@ -45,7 +45,7 @@ function AddTask() {
     }
 
     return (
-        <div style={{ textAlign: 'center', margin: '20px'}}>
+        <div className="add-task--div">
             <h2 style ={{color: "whitesmoke"}}>Add a new task</h2>
             <input
                 type="text"
