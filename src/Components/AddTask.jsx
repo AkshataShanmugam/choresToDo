@@ -51,28 +51,28 @@ function AddTask() {
                 type="text"
                 value={taskName}
                 onChange={(e) => setTaskName(e.target.value)}
-                placeholder="Enter task name"
+                placeholder="Task name"
                 style={{ marginRight: '10px', padding: '5px' }}
             />
             <input
                 type="number"
                 value={taskTime}
                 onChange={(e) => setTaskTime(e.target.value)}
-                placeholder="Enter time to complete (minutes)"
+                placeholder="Time to complete (minutes)"
                 style={{ marginRight: '10px', padding: '5px' }}
             />
             <input
                 type="date"
                 value={taskDeadline}
                 onChange={(e) => setDeadline(e.target.value)}
-                placeholder="Enter deadline for task (dd-mm-yyyy)"
+                placeholder="Deadline for task"
                 style={{ marginRight: '10px', padding: '5px' }}
             />
             <input
                 type="time"
                 value={taskDeadlineTime}
                 onChange={(e) => setDeadlineTime(e.target.value)}
-                placeholder="Enter deadline time"
+                placeholder="Deadline time"
                 style={{ marginRight: '10px', padding: '5px' }}
             />
             <br></br>
