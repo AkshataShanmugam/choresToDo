@@ -9,8 +9,13 @@ import { updateTask } from '../utils/taskService';
 import Formatter from '../utils/Formatter';
 
 export default function UpdateTask({ props }) {
-    // console.log(props.id)
-    const time = Number(props.timeToDo.split(" ")[0])
+    let time;
+    if (props.timeToDo.indexOf('hours') > 0){
+        time = Number(props.timeToDo.split(" ")[0]) * 60
+    } else {
+        time = Number(props.timeToDo.split(" ")[0])
+    }
+    
     let date = ""
     let dTime = ""
     if (props.deadline){
