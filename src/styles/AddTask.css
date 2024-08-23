@@ -1,6 +1,6 @@
 .add-task--div{
     text-align: center;
-    margin: 15px;
+    margin: 7px;
 }
 
 .add-task--div input {
@@ -13,7 +13,8 @@
     border: none;
     height: 40px;
     text-align: center;
-    width: 90%;
+    width: 60%;
+    max-width: 90%;
     box-shadow: 0px 0px 2px white;
 }
 
