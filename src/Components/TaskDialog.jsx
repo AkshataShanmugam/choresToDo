@@ -8,8 +8,8 @@ import '../styles/App.css';
 function TaskDialog({ open, onClose }) {
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle style={{ textAlign: "center" }} className="dialog-heading">
-        Add New Task
+      <DialogTitle style={{ padding: "5px" }} className="dialog-heading">
+        {/* Add New Task */}
         <IconButton
           edge="end"
           color="inherit"

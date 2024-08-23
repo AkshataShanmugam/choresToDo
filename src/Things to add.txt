@@ -8,3 +8,4 @@
 3. User sign-in
 4. Add images to add? don't know
 5. Add favicon for mobile users
+6. Adjust add task to fit properly in mobile phones
