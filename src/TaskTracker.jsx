@@ -11,6 +11,9 @@ import TaskList from './Components/TaskList';
 import "./styles/App.css";
 import SearchBar from './Components/SearchBar';
 
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
+
 export default function TaskTracker() {
     const { showConfetti, fadeOut, width, height, startConfetti } = useConfetti();
     const [todos, setTodos] = useState([]);
@@ -52,6 +55,14 @@ export default function TaskTracker() {
     return (
         <div>
             <Header />
+            <Button style={{color: "white", 
+                backgroundColor: "black", 
+                boxShadow: "0px 0px 3px white",
+                marginRight: "30px",
+                marginLeft: "auto",
+                display: "block"}}>
+                    <Link to={`schedule`}>Switch to schedule viewer</Link>
+            </Button>
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <FilterButton filterComplete={filterComplete} onClick={changeFilterCompleteStatus} />
 

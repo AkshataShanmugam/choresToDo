@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client'
 import './styles/index.css'
 import TaskTracker from "./TaskTracker.jsx"
 import ErrorPage from "./ErrorPage.jsx";
-import AddTask from './Components/AddTask.jsx'
+import Schedule from './Schedule.jsx';
 
 import {
   createBrowserRouter,
@@ -18,8 +18,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   }, 
   {
-    path: "add",
-    element: <AddTask />,
+    path: "schedule",
+    element: <Schedule />,
   },
 ]);
 
