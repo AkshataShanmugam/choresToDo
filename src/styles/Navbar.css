@@ -1,0 +1,26 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+.navbar-logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.navbar--dropdown {
+    color: white;
+    background-color: black;
+    box-shadow: 0px 0px 3px white;
+    margin-right: 30px;
+    margin-left: auto;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer
+}
