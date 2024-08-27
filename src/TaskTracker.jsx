@@ -66,8 +66,6 @@ export default function TaskTracker() {
         <div>
             <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <Header />
-            
-            {/* <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> */}
             <FilterButton filterComplete={filterComplete} onClick={changeFilterCompleteStatus} />
 
             <IconButton
