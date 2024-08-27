@@ -13,13 +13,22 @@ function Todo({ props, onToggle, onDelete, onUpdate }) {
                 <div className={`todo ${props.completed ? 'completed' : ''}`} onDoubleClick={onUpdate}>
                     <CardHeader
                         title={props.name}
-                        subheader={'Created on: ' + Formatter.formatDateTime(new Date(props.createdOn))} // Use the createdOn timestamp from props
+                        subheader={'Created: ' + Formatter.formatDateTime(new Date(props.createdOn))} // Use the createdOn timestamp from props
                     />
                     <hr/>
                     <CardContent>
+                        {
+                        props.completed &&
                         <Typography variant="body2">
-                            Estimated time: <b>{props.timeToDo}</b>
+                            Time spent: <b>{props.timeToDo}</b>
                         </Typography>
+                        }
+                        {
+                        !props.completed &&
+                        <Typography variant="body2">
+                            Time estimate: <b>{props.timeToDo}</b>
+                        </Typography>
+                        }
                         {
                         props.deadline && 
                             <Typography variant="body2">
@@ -29,6 +38,12 @@ function Todo({ props, onToggle, onDelete, onUpdate }) {
                         <Typography variant="body2">
                             Status: <b>{props.completed ? 'Yess!! You completed it' : 'No, not yet :('}</b>
                         </Typography>
+                        {
+                        props.completed && props.completedOn &&
+                            <Typography variant="body2">
+                                Completed: <b>{props.completedOn}</b>
+                            </Typography>
+                        }
                     </CardContent>
                 </div>
                 <div className="to-do--buttons">

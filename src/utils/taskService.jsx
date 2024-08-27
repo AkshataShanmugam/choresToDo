@@ -1,5 +1,6 @@
 import { db } from '../firebase';
 import { ref, push, set, onValue, update, remove } from 'firebase/database';
+import Formatter from './Formatter';
 
 export function addTask(task) {
     const tasksRef = ref(db, 'tasks');
@@ -7,6 +8,7 @@ export function addTask(task) {
     const taskWithTimestamp = {
         ...task,
         createdOn: new Date().toString(), // Add createdOn timestamp when the task is added
+        completedOn: null,
     };
     return set(newTaskRef, taskWithTimestamp);
 }
@@ -46,5 +48,5 @@ export function deleteTask(taskId) {
 
 export function toggleTaskCompletion(taskId, completed) {
     const taskRef = ref(db, `tasks/${taskId}`);
-    return update(taskRef, { completed });
+    return update(taskRef, { completed, completedOn: Formatter.formatDateTime(new Date())});
 }
