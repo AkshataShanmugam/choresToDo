@@ -3,7 +3,7 @@ import React from 'react';
 import { Dialog, DialogContent, IconButton } from '@mui/material';
 import { Close as CloseIcon } from '@mui/icons-material';
 import AddTasks from './AddTasks';
-import '../styles/App.css';
+import '../styles/TaskTracker.css';
 
 function TaskDialog({ open, onClose }) {
   return (

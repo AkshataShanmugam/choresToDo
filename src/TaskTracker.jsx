@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Header from './Components/Header';
 import FilterButton from './Components/FilterButton';
 import TaskDialog from './Components/TaskDialog';
-import { fetchTasks, deleteTask, toggleTaskCompletion } from './utils/taskService';
+import { fetchTasks, deleteTask, toggleTaskCompletion, sortTasks } from './utils/taskService';
 import Confetti from "react-confetti";
 import { IconButton } from '@mui/material';
 import { Add as AddIcon } from '@mui/icons-material';
 import { useConfetti } from './hooks/useConfetti';
 import TaskList from './Components/TaskList';
-import "./styles/App.css";
+import "./styles/TaskTracker.css";
 
 import TaskUpdateDialog from './Components/TaskUpdateDialog';
 import Navbar from './Components/Navbar';
+
 
 export default function TaskTracker() {
     const { showConfetti, fadeOut, width, height, startConfetti } = useConfetti();
@@ -21,10 +21,17 @@ export default function TaskTracker() {
     const [openUpdateDialog, setOpenUpdateDialog] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const [updateTask, setUpdateTask] = useState({})
+    const [sortedTask, setSortedTask] = useState([]);
+    const [category, setCategory] = useState("createdOn");
     
     useEffect(() => {
         fetchTasks(setTodos, filterComplete);
     }, [filterComplete]);
+
+    useEffect(() => {
+        setSortedTask(sortTasks(todos, category));
+    }, [todos, category]);
+
 
     function handleToggleCompletion(taskId, completed) {
         toggleTaskCompletion(taskId, completed);
@@ -62,12 +69,18 @@ export default function TaskTracker() {
         todo.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    function handleSortChange(e) {
+        const new_category = e.target.value;
+        setCategory(new_category);
+        setSortedTask(sortTasks(todos, new_category));
+    } 
+
+
     return (
         <div>
             <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-            <Header />
+            <br />
             <FilterButton filterComplete={filterComplete} onClick={changeFilterCompleteStatus} />
-
             <IconButton
                 edge="end"
                 aria-label="add-task"
@@ -76,6 +89,14 @@ export default function TaskTracker() {
             >
                 <AddIcon />
             </IconButton>
+
+            <select onChange={handleSortChange} className='sort--dropdown'>
+                <option value={'createdOn'}> Sort by </option>
+                <option value={'name'}> Name </option>
+                <option value={'createdOn'}> CreatedOn </option>
+                <option value={'timeToDo'}> Time To Do </option>
+                <option value={'deadline'}> Deadline </option>
+            </select>
             
             <TaskDialog open={openDialog} onClose={toggleDialog} />
             <TaskUpdateDialog open={openUpdateDialog} onClose={toggleUpdateDialog} taskDetails={updateTask}/>

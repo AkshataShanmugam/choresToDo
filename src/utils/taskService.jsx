@@ -13,6 +13,40 @@ export function addTask(task) {
     return set(newTaskRef, taskWithTimestamp);
 }
 
+export function sortTasks(tasks, category) {
+    const sortedTasks = tasks.sort((a, b) => {
+        let valueA = 0;
+        let valueB = 0;
+
+        valueA = a[category];
+        valueB = b[category];
+
+        if (category === "timeToDo"){
+            if (valueA.indexOf('hours') > 0){
+                valueA = Number(valueA.split(" ")[0]) * 60
+            } else {
+                valueA = Number(valueA.split(" ")[0])
+            }
+
+            if (valueB.indexOf('hours') > 0){
+                valueB = Number(valueB.split(" ")[0]) * 60
+            } else {
+                valueB = Number(valueB.split(" ")[0])
+            }
+        }
+
+        if (typeof valueA === 'boolean' && typeof valueB === 'boolean') {
+            return valueA === valueB ? 0 : valueA ? -1 : 1;
+        }
+
+        if (typeof valueA === 'string' || typeof valueA === 'number' || valueA instanceof Date) {
+            return valueA < valueB ? -1 : valueA > valueB ? 1 : 0;
+        }
+    });
+
+    return sortedTasks;
+}
+
 export function fetchTasks(callback, required) {
     const tasksRef = ref(db, 'tasks');
     onValue(tasksRef, (snapshot) => {

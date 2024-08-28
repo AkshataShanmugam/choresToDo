@@ -43,3 +43,20 @@
 .dialog-content {
   background: linear-gradient(135deg, #080808, #070707); /* Gradient background */
 }
+
+.sort--dropdown {
+  color: white;
+  width: 173px;
+  background-color: black;
+  box-shadow: 0px 0px 3px white;
+  margin-right: 20px;
+  margin-left: auto;
+  margin-top: 10px;
+  display: block;
+  height: 35px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
